@@ -2,6 +2,7 @@ import React from 'react'
 import Frontpage from '../HomeComponents/Frontpage'
 import Header from '../HomeComponents/Header'
 import Solve from '../HomeComponents/Solve'
+import Overview from '../HomeComponents/Overview'
 
 function Homepage() {
   return (
@@ -9,6 +10,7 @@ function Homepage() {
         <Header/>
         <Frontpage/>
         <Solve/>
+        <Overview/>
     </div>
   )
 }

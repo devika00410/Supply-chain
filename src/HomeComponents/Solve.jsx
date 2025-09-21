@@ -69,8 +69,7 @@ function Solve() {
               <div 
                 className="step" 
                 key={index}
-                ref={(el) => (stepRefs.current[index] = el)}
-              >
+                ref={(el) => (stepRefs.current[index] = el)}>
                 <div className="step-icon">
                   <div className="icon-circle">
                     <Icon className="icon" />
