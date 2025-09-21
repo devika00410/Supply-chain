@@ -3,6 +3,7 @@ import Frontpage from '../HomeComponents/Frontpage'
 import Header from '../HomeComponents/Header'
 import Solve from '../HomeComponents/Solve'
 import Overview from '../HomeComponents/Overview'
+import TestimonialSection from '../HomeComponents/TestimonialSection'
 
 function Homepage() {
   return (
@@ -11,6 +12,7 @@ function Homepage() {
         <Frontpage/>
         <Solve/>
         <Overview/>
+        <TestimonialSection/>
     </div>
   )
 }

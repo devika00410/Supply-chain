@@ -1,0 +1,74 @@
+{
+  "testimonialData": [
+    {
+      "id": 1,
+      "city": "Delhi",
+      "coordinates": [77.1025, 30.7041],
+      "company": "TechCorp India",
+      "logo": "microsoft.png",
+      "quote": "Reduced our last-mile delivery costs by 30%.",
+      "beforeChallenge": "High delivery costs and delays",
+      "afterSolution": "Optimized routes reduced costs and improved efficiency"
+    },
+    {
+      "id": 2,
+      "city": "Kolkata",
+      "coordinates": [88.3639, 22.5726],
+      "company": "Global Pharma",
+      "logo": "app-store.png",
+      "quote": "Real-time tracking saved a crucial client shipment.",
+      "beforeChallenge": "No visibility into shipments",
+      "afterSolution": "Real-time tracking enabled timely deliveries"
+    },
+    {
+      "id": 3,
+      "city": "Mumbai",
+      "coordinates": [72.8777, 19.0760],
+      "company": "NextGen Electronics",
+      "logo": "oracle.png",
+      "quote": "The analytics helped us optimize our entire supply chain.",
+      "beforeChallenge": "Manual reports and delayed insights",
+      "afterSolution": "Automated analytics improved supply chain decisions"
+    },
+    {
+      "id": 4,
+      "city": "Bangalore",
+      "coordinates": [77.5946, 12.9716],
+      "company": "Southern Logistics",
+      "logo": "pinterest.png",
+      "quote": "Finding reliable carriers has never been easier.",
+      "beforeChallenge": "Unreliable carrier network",
+      "afterSolution": "Vetted carriers improved reliability and speed"
+    },
+    {
+      "id": 5,
+      "city": "Kochi",
+      "coordinates": [75.2711, 11.8505],
+      "company": "Kerala Freight",
+      "logo": "uber.png",
+      "quote": "Local logistics support improved our delivery timelines.",
+      "beforeChallenge": "Delays in local deliveries",
+      "afterSolution": "Efficient local logistics support reduced delays"
+    },
+    {
+      "id": 6,
+      "city": "Madhyapradesh",
+      "coordinates": [78.4867, 20.3850],
+      "company": "Sunrise Retail",
+      "logo": "unity.png",
+      "quote": "Improved warehouse efficiency and cut delays by 25%.",
+      "beforeChallenge": "Inefficient warehouse operations",
+      "afterSolution": "Streamlined warehouse processes reduced delays"
+    },
+    {
+      "id": 7,
+      "city": "Jaipur",
+      "coordinates": [75.7873, 26.9124],
+      "company": "AutoParts Ltd.",
+      "logo": "photos.png",
+      "quote": "Integrated dashboards gave us total visibility.",
+      "beforeChallenge": "No consolidated visibility on supply chain",
+      "afterSolution": "Dashboards provided real-time insights and control"
+    }
+  ]
+}
