@@ -6,6 +6,7 @@ import Overview from '../HomeComponents/Overview'
 import TestimonialSection from '../HomeComponents/TestimonialSection'
 import About from '../HomeComponents/About'
 import ValueProposition from '../HomeComponents/ValueProposition'
+import QuoteCTA from '../HomeComponents/QuoteCTA'
 
 function Homepage() {
   return (
@@ -17,7 +18,7 @@ function Homepage() {
         <Overview/>
          <About/>
         <TestimonialSection/>
-       
+       <QuoteCTA/>
     </div>
   )
 }
