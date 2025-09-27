@@ -1,6 +1,6 @@
 import React from 'react'
 import Frontpage from '../HomeComponents/Frontpage'
-import Header from '../HomeComponents/Header'
+// import Header from '../Components/Header'
 import Solve from '../HomeComponents/Solve'
 import Overview from '../HomeComponents/Overview'
 import TestimonialSection from '../HomeComponents/TestimonialSection'
@@ -11,7 +11,7 @@ import QuoteCTA from '../HomeComponents/QuoteCTA'
 function Homepage() {
   return (
     <div>
-        <Header/>
+        {/* <Header/> */}
         <Frontpage/>
         <ValueProposition/>
         <Solve/>

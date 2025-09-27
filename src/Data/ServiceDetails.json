@@ -1,0 +1,646 @@
+[
+  {
+    "id": 1,
+    "title": "Smart Logistics Marketplace",
+    "shortDescription": "Connect with trusted trucks and warehouses across India to solve fragmented networks and capacity mismatches.",
+    "heroImage": "images/smart-logistics-marketplace-hero.jpg",
+    "features": [
+      "Wide network of verified carriers and warehouses",
+      "Seamless booking & scheduling of shipments",
+      "Capacity matching to reduce empty runs",
+      "Integrated communication with transport partners"
+    ],
+    "benefits": [
+      "Reduce operational bottlenecks and downtime",
+      "Lower transportation costs via optimized utilization",
+      "Faster shipment matching for urgent deliveries",
+      "Enhanced reliability with verified partners"
+    ],
+    "solutions": [
+      "AI-powered carrier matching algorithm",
+      "Real-time capacity availability dashboard",
+      "Automated booking and confirmation system",
+      "Performance-based carrier rating system"
+    ],
+    "idealUsers": [
+      "Small to medium manufacturing companies",
+      "E-commerce startups and scale-ups",
+      "Agricultural produce distributors",
+      "Construction material suppliers"
+    ],
+    "problems": [
+      "Difficulty finding reliable transport partners",
+      "High empty return trips increasing costs",
+      "Manual booking processes causing delays",
+      "Lack of transparency in carrier performance",
+      "Seasonal demand fluctuations mismanagement"
+    ],
+    "solutionsList": [
+      "Automated partner verification and onboarding",
+      "Dynamic pricing based on real-time demand",
+      "Digital booking platform with instant confirmation",
+      "Performance analytics for carrier selection",
+      "Predictive demand forecasting for capacity planning"
+    ],
+    "testimonials": [
+      {
+        "name": "Rajesh Kumar",
+        "company": "Kumar Textiles",
+        "comment": "Reduced our logistics costs by 35% and improved delivery reliability. The marketplace connected us with trusted carriers instantly.",
+        "rating": 5
+      },
+      {
+        "name": "Priya Sharma",
+        "company": "FreshFarm Organics",
+        "comment": "As a perishable goods supplier, finding temperature-controlled vehicles was always challenging. This platform solved our biggest pain point.",
+        "rating": 5
+      },
+      {
+        "name": "Amit Patel",
+        "company": "TechGadgets India",
+        "comment": "The real-time capacity matching helped us scale during festival season without any delivery delays. Game-changing platform!",
+        "rating": 4
+      },
+      {
+        "name": "Sneha Reddy",
+        "company": "BuildRight Materials",
+        "comment": "Reduced our empty return trips from 40% to 15% through intelligent matching. Significant cost savings achieved.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "Retailers managing multiple warehouse locations",
+      "Manufacturers seeking timely raw material delivery",
+      "E-commerce platforms with high volume shipments"
+    ],
+    "howItWorks": [
+      "Search & Match: Find available trucks and warehouses",
+      "Book Shipment: Schedule pickup & delivery",
+      "Track & Communicate: Monitor progress and updates",
+      "Confirm Delivery: Receive proof and invoice digitally"
+    ],
+    "stats": [
+      {"label": "Active Carriers", "value": "1500+"},
+      {"label": "Shipments Managed", "value": "500k+"},
+      {"label": "On-time Deliveries", "value": "97%"}
+    ],
+    "gallery": [
+      "images/marketplace-1.jpg",
+      "images/marketplace-2.jpg",
+      "images/marketplace-3.jpg"
+    ],
+    "cta": "Connect Now"
+  },
+  {
+    "id": 2,
+    "title": "Real-Time Shipment Tracking",
+    "shortDescription": "GPS + IoT tracking for visibility from pickup to delivery, tackling delays, theft, and lack of transparency.",
+    "heroImage": "images/real-time-tracking-hero.jpg",
+    "features": [
+      "Live GPS tracking of shipments",
+      "IoT sensors for condition monitoring",
+      "Instant alerts for delays or deviations",
+      "Detailed shipment history and reports"
+    ],
+    "benefits": [
+      "Ensure timely delivery with proactive monitoring",
+      "Prevent theft and misplacement of goods",
+      "Improve transparency across supply chain",
+      "Optimize routes based on live data"
+    ],
+    "solutions": [
+      "Multi-layer GPS tracking technology",
+      "Smart alert system for route deviations",
+      "Temperature and humidity monitoring",
+      "Automated ETA predictions"
+    ],
+    "idealUsers": [
+      "Pharmaceutical companies",
+      "High-value electronics manufacturers",
+      "Jewelry and luxury goods retailers",
+      "Document and courier services"
+    ],
+    "problems": [
+      "Frequent shipment delays without prior notice",
+      "Goods theft during transit",
+      "Temperature deviations damaging sensitive products",
+      "Poor communication with customers about delays",
+      "Inefficient route planning causing fuel wastage"
+    ],
+    "solutionsList": [
+      "Real-time GPS tracking with 30-second updates",
+      "Geo-fencing alerts for unauthorized route changes",
+      "IoT sensors for continuous condition monitoring",
+      "Automated customer notification system",
+      "Route optimization based on live traffic data"
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. Anjali Mehta",
+        "company": "MediLife Pharmaceuticals",
+        "comment": "Critical for our vaccine shipments. Temperature monitoring saved us from potential spoilage multiple times.",
+        "rating": 5
+      },
+      {
+        "name": "Vikram Singh",
+        "company": "TechElectro Corp",
+        "comment": "Reduced our shipment theft incidents by 90%. The real-time alerts helped us take immediate action.",
+        "rating": 5
+      },
+      {
+        "name": "Neha Gupta",
+        "company": "LuxeJewels",
+        "comment": "Our customers love the live tracking feature. Increased customer satisfaction significantly.",
+        "rating": 4
+      },
+      {
+        "name": "Rahul Joshi",
+        "company": "QuickDocs Courier",
+        "comment": "ETA predictions are 95% accurate. Helped us manage customer expectations effectively.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "Pharma shipments requiring temperature control",
+      "High-value electronics deliveries",
+      "Retailers tracking multiple orders simultaneously"
+    ],
+    "howItWorks": [
+      "Attach IoT Sensors: Monitor shipment conditions",
+      "Track Live: GPS + IoT updates in real-time",
+      "Receive Alerts: Deviations trigger notifications",
+      "Analyze Reports: Post-delivery analytics for optimization"
+    ],
+    "stats": [
+      {"label": "Shipments Tracked", "value": "2M+"},
+      {"label": "Alerts Triggered", "value": "50k+"},
+      {"label": "Customer Satisfaction", "value": "98%"}
+    ],
+    "gallery": [
+      "images/tracking-1.jpg",
+      "images/tracking-2.jpg",
+      "images/tracking-3.jpg"
+    ],
+    "cta": "Track Your Shipment"
+  },
+  {
+    "id": 3,
+    "title": "Digital Documentation Hub",
+    "shortDescription": "Manage e-Way bills, permits, and proof of delivery online to solve compliance and paperwork inefficiencies.",
+    "heroImage": "images/digital-docs-hero.jpg",
+    "features": [
+      "Generate e-Way bills and permits instantly",
+      "Digital proof of delivery and invoices",
+      "Centralized document storage",
+      "Automated compliance alerts"
+    ],
+    "benefits": [
+      "Reduce manual paperwork errors",
+      "Ensure regulatory compliance easily",
+      "Save time on document management",
+      "Quick access to historical records"
+    ],
+    "solutions": [
+      "Automated e-Way bill generation",
+      "Digital signature integration",
+      "Cloud-based document storage",
+      "Compliance deadline reminders"
+    ],
+    "idealUsers": [
+      "Logistics and freight companies",
+      "Manufacturing units with interstate operations",
+      "Import-export businesses",
+      "Multi-state retail chains"
+    ],
+    "problems": [
+      "Manual documentation errors causing delays",
+      "Lost or misplaced physical documents",
+      "Compliance violations due to missed deadlines",
+      "Time-consuming document retrieval processes",
+      "Difficulty in audit preparation"
+    ],
+    "solutionsList": [
+      "Automated form filling with validation checks",
+      "Secure cloud storage with backup",
+      "Calendar integration for compliance deadlines",
+      "Quick search and retrieval system",
+      "Automated audit trail generation"
+    ],
+    "testimonials": [
+      {
+        "name": "Sanjay Malhotra",
+        "company": "TransIndia Logistics",
+        "comment": "Reduced our document processing time by 70%. Compliance errors dropped to near zero.",
+        "rating": 5
+      },
+      {
+        "name": "Meera Krishnan",
+        "company": "Global Exports Ltd",
+        "comment": "The automated compliance alerts saved us from multiple penalty situations. Essential for import-export businesses.",
+        "rating": 5
+      },
+      {
+        "name": "Arun Desai",
+        "company": "MultiState Retailers",
+        "comment": "Centralized document storage made audit preparation effortless. Reduced our audit time by 50%.",
+        "rating": 4
+      },
+      {
+        "name": "Priyanka Joshi",
+        "company": "ManufactureCorp India",
+        "comment": "Digital PODs eliminated disputes with customers. Payment cycles improved significantly.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "Freight companies managing multiple shipments",
+      "Manufacturers tracking regulatory documents",
+      "E-commerce platforms managing return documentation"
+    ],
+    "howItWorks": [
+      "Upload & Generate: Create required documents digitally",
+      "Store Securely: Access anytime from cloud",
+      "Share with Partners: Instant access for carriers",
+      "Verify Compliance: Automated checks reduce errors"
+    ],
+    "stats": [
+      {"label": "Documents Processed", "value": "1M+"},
+      {"label": "Time Saved", "value": "20% per shipment"},
+      {"label": "Compliance Errors", "value": "Reduced by 90%"}
+    ],
+    "gallery": [
+      "images/docs-1.jpg",
+      "images/docs-2.jpg",
+      "images/docs-3.jpg"
+    ],
+    "cta": "Manage Documents"
+  },
+  {
+    "id": 4,
+    "title": "Performance Analytics Dashboard",
+    "shortDescription": "Data insights on cost, delays, and carrier performance to solve poor decision-making due to lack of analytics.",
+    "heroImage": "images/analytics-dashboard-hero.jpg",
+    "features": [
+      "Visual dashboards with KPIs",
+      "Cost, delay, and carrier performance insights",
+      "Customizable reports",
+      "Trend predictions for planning"
+    ],
+    "benefits": [
+      "Make informed operational decisions",
+      "Identify bottlenecks and improve efficiency",
+      "Forecast shipment demands accurately",
+      "Track carrier reliability over time"
+    ],
+    "solutions": [
+      "Real-time KPI monitoring",
+      "Predictive analytics for demand forecasting",
+      "Carrier performance scoring",
+      "Cost optimization recommendations"
+    ],
+    "idealUsers": [
+      "Supply chain managers",
+      "Logistics operations heads",
+      "Business intelligence teams",
+      "CFOs and finance departments"
+    ],
+    "problems": [
+      "Lack of visibility into logistics performance",
+      "Difficulty identifying cost-saving opportunities",
+      "Inability to forecast demand accurately",
+      "Poor carrier performance going unnoticed",
+      "Manual reporting consuming valuable time"
+    ],
+    "solutionsList": [
+      "Comprehensive dashboard with real-time metrics",
+      "AI-powered cost optimization suggestions",
+      "Demand forecasting using historical data",
+      "Automated carrier performance reporting",
+      "Custom report generation with one click"
+    ],
+    "testimonials": [
+      {
+        "name": "Rohit Verma",
+        "company": "SupplyChain Pro",
+        "comment": "The analytics helped us identify 15% cost savings we never knew existed. Data-driven decisions transformed our operations.",
+        "rating": 5
+      },
+      {
+        "name": "Anita Deshpande",
+        "company": "QuickDeliver Services",
+        "comment": "Carrier performance tracking improved our on-time delivery from 85% to 96%. Incredible impact on customer satisfaction.",
+        "rating": 5
+      },
+      {
+        "name": "Karan Mehta",
+        "company": "BizIntel Solutions",
+        "comment": "The predictive analytics helped us prepare for peak seasons effectively. No more capacity crises during festivals.",
+        "rating": 4
+      },
+      {
+        "name": "Sonia Kapoor",
+        "company": "FinanceFirst Corp",
+        "comment": "Cost optimization insights saved us ₹50 lakhs annually. ROI was achieved within 3 months.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "Logistics managers optimizing multiple routes",
+      "Supply chain executives tracking costs",
+      "Manufacturers analyzing delivery trends"
+    ],
+    "howItWorks": [
+      "Collect Data: Automated data collection from shipments",
+      "Analyze: Dashboards show KPIs & trends",
+      "Report: Generate custom reports for teams",
+      "Act: Optimize operations based on insights"
+    ],
+    "stats": [
+      {"label": "Reports Generated", "value": "25k+"},
+      {"label": "Decision Accuracy", "value": "95%"},
+      {"label": "Operational Savings", "value": "15%"}
+    ],
+    "gallery": [
+      "images/analytics-1.jpg",
+      "images/analytics-2.jpg",
+      "images/analytics-3.jpg"
+    ],
+    "cta": "View Dashboard"
+  },
+  {
+    "id": 5,
+    "title": "AI Route Optimization & Fleet Planning",
+    "shortDescription": "Smart route planning reduces fuel, time, and congestion delays, solving inefficient planning and high fuel costs.",
+    "heroImage": "images/ai-route-hero.jpg",
+    "features": [
+      "AI-based optimal route recommendations",
+      "Dynamic traffic & weather adjustments",
+      "Fleet utilization optimization",
+      "Fuel cost and time reduction analytics"
+    ],
+    "benefits": [
+      "Lower fuel consumption and operational costs",
+      "Faster deliveries with optimized routes",
+      "Reduced driver idle time",
+      "Improved customer satisfaction through timely delivery"
+    ],
+    "solutions": [
+      "Dynamic route optimization algorithm",
+      "Real-time traffic integration",
+      "Fuel efficiency analytics",
+      "Multi-stop route planning"
+    ],
+    "idealUsers": [
+      "Last-mile delivery companies",
+      "Fleet operators with large vehicle networks",
+      "Food delivery and quick commerce",
+      "Field service management companies"
+    ],
+    "problems": [
+      "Inefficient routes increasing fuel costs",
+      "Traffic congestion causing delivery delays",
+      "Poor fleet utilization leading to wasted capacity",
+      "Manual route planning consuming hours daily",
+      "Inability to handle last-minute changes effectively"
+    ],
+    "solutionsList": [
+      "AI algorithms calculating most efficient routes",
+      "Real-time traffic data integration",
+      "Fleet utilization optimization tools",
+      "Dynamic re-routing for unexpected changes",
+      "Fuel consumption monitoring and suggestions"
+    ],
+    "testimonials": [
+      {
+        "name": "Vikram Aditya",
+        "company": "QuickDrop Delivery",
+        "comment": "Reduced our fuel costs by 22% and improved delivery times by 30%. The AI routing is incredibly accurate.",
+        "rating": 5
+      },
+      {
+        "name": "Priya Nair",
+        "company": "FoodExpress",
+        "comment": "Dynamic re-routing during traffic jams saved our delivery promises. Customer complaints reduced by 60%.",
+        "rating": 5
+      },
+      {
+        "name": "Rahul Malhotra",
+        "company": "ServicePro Technicians",
+        "comment": "Multi-stop optimization helped our technicians complete 3 more calls per day. Huge productivity improvement.",
+        "rating": 4
+      },
+      {
+        "name": "Anjali Reddy",
+        "company": "MetroFleet Operators",
+        "comment": "Fleet utilization improved from 65% to 85%. We delayed vehicle purchases by 2 years due to better optimization.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "Fleet operators managing large delivery networks",
+      "E-commerce companies with dynamic deliveries",
+      "Food and beverage distribution requiring freshness"
+    ],
+    "howItWorks": [
+      "Input Delivery Locations: System receives addresses",
+      "AI Plans Routes: Calculates fastest, cost-effective paths",
+      "Track & Adjust: Real-time updates for delays",
+      "Analyze & Improve: Learnings applied for future routes"
+    ],
+    "stats": [
+      {"label": "Routes Optimized", "value": "100k+"},
+      {"label": "Fuel Saved", "value": "18%"},
+      {"label": "Delivery Time Reduced", "value": "20%"}
+    ],
+    "gallery": [
+      "images/route-1.jpg",
+      "images/route-2.jpg",
+      "images/route-3.jpg"
+    ],
+    "cta": "Optimize Your Routes"
+  },
+  {
+    "id": 6,
+    "title": "Smart Warehouse & Inventory Management",
+    "shortDescription": "Real-time stock tracking and automation inside warehouses solves storage bottlenecks and inaccurate inventory.",
+    "heroImage": "images/warehouse-hero.jpg",
+    "features": [
+      "Real-time inventory monitoring",
+      "Automated stock alerts and replenishments",
+      "Barcode & RFID integration",
+      "Warehouse workflow automation"
+    ],
+    "benefits": [
+      "Prevent stockouts and overstocking",
+      "Improve warehouse efficiency",
+      "Reduce manual errors",
+      "Optimize storage and retrieval processes"
+    ],
+    "solutions": [
+      "Automated inventory tracking system",
+      "Smart replenishment algorithms",
+      "Warehouse layout optimization",
+      "Pick and pack process automation"
+    ],
+    "idealUsers": [
+      "E-commerce fulfillment centers",
+      "Manufacturing raw material warehouses",
+      "Retail distribution centers",
+      "3PL warehouse operators"
+    ],
+    "problems": [
+      "Inventory inaccuracies causing stockouts",
+      "Inefficient warehouse layouts increasing picking time",
+      "Manual counting errors",
+      "Poor space utilization",
+      "Difficulty in seasonal demand management"
+    ],
+    "solutionsList": [
+      "Real-time RFID-based inventory tracking",
+      "AI-powered warehouse layout optimization",
+      "Automated cycle counting systems",
+      "Dynamic slotting based on demand patterns",
+      "Seasonal demand forecasting integration"
+    ],
+    "testimonials": [
+      {
+        "name": "Arjun Mehta",
+        "company": "ShopEasy E-commerce",
+        "comment": "Inventory accuracy improved from 87% to 99.5%. Stockouts during sales events became history.",
+        "rating": 5
+      },
+      {
+        "name": "Neha Kapoor",
+        "company": "AutoParts Manufacturing",
+        "comment": "Raw material tracking eliminated production delays. Just-in-time inventory saved us significant storage costs.",
+        "rating": 5
+      },
+      {
+        "name": "Rajiv Choudhary",
+        "company": "QuickStock 3PL",
+        "comment": "Warehouse efficiency improved by 40%. Our clients noticed faster order processing immediately.",
+        "rating": 4
+      },
+      {
+        "name": "Priya Singh",
+        "company": "RetailDistro Network",
+        "comment": "Seasonal forecasting helped us prepare for Diwali rush perfectly. No overstocking or stockouts.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "E-commerce warehouses managing thousands of SKUs",
+      "Manufacturing plants tracking raw materials",
+      "Retailers optimizing multi-location inventory"
+    ],
+    "howItWorks": [
+      "Scan & Track: Barcode/RFID scans update stock",
+      "Automate Alerts: Low/high stock notifications",
+      "Analyze Usage: Reports for demand trends",
+      "Optimize Storage: Automated slotting & workflows"
+    ],
+    "stats": [
+      {"label": "Stock Accuracy", "value": "99%"},
+      {"label": "Processing Speed", "value": "30% faster"},
+      {"label": "Warehouses Managed", "value": "200+"}
+    ],
+    "gallery": [
+      "images/warehouse-1.jpg",
+      "images/warehouse-2.jpg",
+      "images/warehouse-3.jpg"
+    ],
+    "cta": "Manage Inventory"
+  },
+  {
+    "id": 7,
+    "title": "Cold Chain & Perishables Monitoring",
+    "shortDescription": "IoT-enabled monitoring for food and pharma shipments solves wastage and compliance issues in temperature-sensitive goods.",
+    "heroImage": "images/cold-chain-hero.jpg",
+    "features": [
+      "Temperature & humidity IoT sensors",
+      "Real-time alerts for deviations",
+      "Automated compliance reporting",
+      "Shipment condition history logs"
+    ],
+    "benefits": [
+      "Prevent spoilage and reduce wastage",
+      "Ensure compliance with regulations",
+      "Maintain product quality and safety",
+      "Enhance transparency for stakeholders"
+    ],
+    "solutions": [
+      "Multi-point temperature monitoring",
+      "Automated compliance documentation",
+      "Predictive spoilage prevention",
+      "End-to-end cold chain visibility"
+    ],
+    "idealUsers": [
+      "Pharmaceutical manufacturers",
+      "Fresh food and produce suppliers",
+      "Dairy and frozen food companies",
+      "Vaccine and medical supply distributors"
+    ],
+    "problems": [
+      "Temperature deviations spoiling products",
+      "Compliance documentation challenges",
+      "Lack of visibility during transit",
+      "Difficulty proving chain of custody",
+      "High wastage rates increasing costs"
+    ],
+    "solutionsList": [
+      "Continuous temperature monitoring with alerts",
+      "Automated regulatory compliance reporting",
+      "Real-time visibility throughout supply chain",
+      "Digital chain of custody documentation",
+      "Predictive analytics for spoilage prevention"
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. Sameer Khan",
+        "company": "PharmaCare Labs",
+        "comment": "Critical for our insulin shipments. Temperature alerts saved ₹50 lakhs in potential spoilage last quarter.",
+        "rating": 5
+      },
+      {
+        "name": "Anita Reddy",
+        "company": "FreshFarms Produce",
+        "comment": "Reduced our vegetable wastage from 15% to 3%. The real-time monitoring is a game-changer for perishables.",
+        "rating": 5
+      },
+      {
+        "name": "Rohit Malhotra",
+        "company": "IceCold Dairy",
+        "comment": "Compliance automation saved 20 hours per week in documentation. Audits became stress-free.",
+        "rating": 4
+      },
+      {
+        "name": "Priya Sharma",
+        "company": "VaccineDistributors India",
+        "comment": "Chain of custody documentation helped us during regulatory inspections. Zero compliance issues since implementation.",
+        "rating": 5
+      }
+    ],
+    "useCases": [
+      "Pharma companies shipping vaccines & medicines",
+      "Food distributors transporting perishables",
+      "Cold storage operators monitoring temperature-sensitive goods"
+    ],
+    "howItWorks": [
+      "Attach Sensors: IoT devices monitor conditions",
+      "Track Live: Receive real-time alerts",
+      "Adjust & Act: Take corrective actions immediately",
+      "Report & Audit: Automated records for compliance"
+    ],
+    "stats": [
+      {"label": "Temperature Deviations Prevented", "value": "99%"},
+      {"label": "Shipments Monitored", "value": "500k+"},
+      {"label": "Compliance Rate", "value": "100%"}
+    ],
+    "gallery": [
+      "images/cold-chain-1.jpg",
+      "images/cold-chain-2.jpg",
+      "images/cold-chain-3.jpg"
+    ],
+    "cta": "Monitor Your Shipments"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Smart Logistics Marketplace",
+    "shortDescription": "Connect with trusted trucks and warehouses across India to solve fragmented networks and ensure reliable freight capacity.",
+    "image": "https://media.licdn.com/dms/image/v2/D4D12AQFukUQIMRsMaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1705406782479?e=2147483647&v=beta&t=DQN_5C9rPSOmhnkUJf5bmL6QA4SUdulDQQVaq8IE910"
+  },
+  {
+    "id": 2,
+    "title": "Real-Time Shipment Tracking",
+    "shortDescription": "GPS and IoT-enabled shipment visibility from pickup to delivery, ensuring transparency and reducing delays or theft.",
+    "image": "https://www.scnsoft.com/blog-pictures/custom-software-development/shipment-tracking.png"
+  },
+  {
+    "id": 3,
+    "title": "Digital Documentation Hub",
+    "shortDescription": "Automate e-Way bills, permits, and proof of delivery in a secure digital hub, simplifying compliance and reducing paperwork.",
+    "image": "https://images.ctfassets.net/lyp5g4h7vq5n/3SchzK15aYTd4IfX4BIbad/583122473abf681c1345ae2bfb318368/How_to_Replace_Logistics_Paper_Documentation.png"
+  },
+  {
+    "id": 4,
+    "title": "Performance Analytics Dashboard",
+    "shortDescription": "Track costs, delays, and carrier performance with actionable data insights to improve supply chain efficiency.",
+    "image": "https://www.geckoboard.com/uploads/Google-analytics4-dashboard.png"
+  },
+  {
+    "id": 5,
+    "title": "AI Route Optimization & Fleet Planning",
+    "shortDescription": "AI-driven route planning and fleet management to reduce fuel costs, optimize delivery schedules, and minimize congestion delays.",
+    "image": "https://www.talentelgia.com/blog/wp-content/uploads/2025/06/AI-in-route-optemization.webp"
+  },
+  {
+    "id": 6,
+    "title": "Smart Warehouse & Inventory Management",
+    "shortDescription": "Digitally manage stock levels, automate operations, and improve accuracy inside warehouses with IoT-enabled systems.",
+    "image": "https://www.scjunction.com/hs-fs/hubfs/Smart%20Warehouse.png?width=975&name=Smart%20Warehouse.png"
+  },
+  {
+    "id": 7,
+    "title": "Cold Chain & Perishables Monitoring",
+    "shortDescription": "IoT sensors ensure temperature-sensitive goods like food and pharma stay safe and compliant throughout the journey.",
+    "image": "https://spectos.com/wp-content/uploads/2024/07/Webfleet_1920_coldchain_small_truck_metadots.647e4596493f9-1.jpg"
+  }
+]

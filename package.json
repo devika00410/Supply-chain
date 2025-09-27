@@ -13,9 +13,11 @@
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.13",
     "framer-motion": "^12.23.19",
+    "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-simple-maps": "^1.0.0",
+    "react-router-dom": "^7.9.1",
+    "react-simple-maps": "^3.0.0",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
