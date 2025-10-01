@@ -1,4 +1,4 @@
-// --- ServiceDetail.jsx (Light & Clean) ---
+// --- ServiceDetail.jsx (Updated Version) ---
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ServiceDetails from '../Data/ServiceDetails.json';
@@ -22,16 +22,118 @@ const ServiceDetail = () => {
     message: ''
   });
 
+  // Authentication and user state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userServices, setUserServices] = useState([]);
+  const [userData, setUserData] = useState(null);
+
   const service = ServiceDetails.find(s => s.id === parseInt(serviceId));
   if (!service) {
     return <div className="sd-service-not-found">Service Not Found</div>;
   }
 
-  // ROI Calculation in ₹
+  // Check authentication status on component mount
+  useEffect(() => {
+    checkAuthStatus();
+  }, []);
+
+  const checkAuthStatus = () => {
+    const token = localStorage.getItem('authToken');
+    const savedUserData = localStorage.getItem('userData');
+    const savedUserServices = localStorage.getItem('userServices');
+
+    if (token && savedUserData) {
+      setIsLoggedIn(true);
+      setUserData(JSON.parse(savedUserData));
+      setUserServices(savedUserServices ? JSON.parse(savedUserServices) : []);
+    } else {
+      setIsLoggedIn(false);
+      setUserData(null);
+      setUserServices([]);
+    }
+  };
+
+  // SMART PRIMARY BUTTON HANDLER
+  const handlePrimaryCTA = () => {
+    if (!isLoggedIn) {
+      // Redirect to SIGNUP page with service context
+      navigate("/signup", { 
+        state: { 
+          serviceName: service.title,
+          serviceId: service.id,
+          redirectTo: "dashboard",
+          prefillService: service.id
+        } 
+      });
+    } else {
+      // User is logged in - add service to dashboard and redirect
+      addServiceToUserDashboard();
+    }
+  };
+
+  // Add service to user's dashboard
+  const addServiceToUserDashboard = () => {
+    let updatedServices = [...userServices];
+    let isNewService = false;
+
+    if (!userServices.includes(service.id)) {
+      updatedServices = [...userServices, service.id];
+      setUserServices(updatedServices);
+      localStorage.setItem('userServices', JSON.stringify(updatedServices));
+      isNewService = true;
+    }
+    
+    // Redirect to dashboard with this service pre-selected
+    navigate("/dashboard", { 
+      state: { 
+        activeService: service.id,
+        serviceName: service.title,
+        newlyAdded: isNewService
+      } 
+    });
+  };
+
+  // Get dynamic button text for primary CTA button
+  const getPrimaryButtonText = () => {
+    if (!isLoggedIn) {
+      return service.cta || "Get Started";
+    } else if (!userServices.includes(service.id)) {
+      return `Add ${service.title} to Dashboard`;
+    } else {
+      return `Open ${service.title} in Dashboard`;
+    }
+  };
+
+  // Handle other buttons
+  const handleScheduleConsultation = () => {
+    navigate("/consultation", { 
+      state: { 
+        serviceName: service.title,
+        serviceId: service.id 
+      } 
+    });
+  };
+
+  const handleStartFreeTrial = () => {
+    if (!isLoggedIn) {
+      navigate("/signup", { 
+        state: { 
+          serviceName: service.title,
+          serviceId: service.id,
+          trial: true,
+          prefillService: service.id
+        } 
+      });
+    } else {
+      addServiceToUserDashboard();
+    }
+  };
+
+  // ROI Calculation
   const calculateROI = () => {
     const { monthlyShipments, averageValue, currentLossRate } = roiInputs;
     const currentMonthlyLoss = monthlyShipments * averageValue * (currentLossRate / 100);
-    const projectedLossRate = currentLossRate * 0.3; // 70% reduction
+    const projectedLossRate = currentLossRate * 0.3;
     const projectedMonthlyLoss = monthlyShipments * averageValue * (projectedLossRate / 100);
     const monthlySavings = currentMonthlyLoss - projectedMonthlyLoss;
     const annualSavings = monthlySavings * 12;
@@ -72,7 +174,7 @@ const ServiceDetail = () => {
     });
   };
 
-  // Auto-rotate testimonials
+  // Auto-rotate testimonials and gallery
   useEffect(() => {
     const testimonialInterval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % service.testimonials.length);
@@ -103,13 +205,23 @@ const ServiceDetail = () => {
       {/* Header */}
       <header className="sd-header">
         <div className="sd-nav-container">
-          <div className="sd-logo">TransChain</div>
-          <nav className="sd-nav-links">
-            <a href="#services">Services</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#resources">Resources</a>
-            <a href="#contact">Contact</a>
-          </nav>
+          <div className="sd-logo" onClick={() => navigate("/")}>TransChain</div>
+          <div className="sd-auth-status">
+            {isLoggedIn ? (
+              <span className="sd-user-welcome">
+                Welcome, {userData?.firstName}!
+                <button 
+                  className="sd-dashboard-btn"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  Dashboard
+                </button>
+              </span>
+            ) : (
+              <div className="sd-auth-buttons">
+              </div>
+            )}
+          </div>
         </div>
         <div className="sd-nav-container">
           <div className="sd-back-nav">
@@ -118,25 +230,50 @@ const ServiceDetail = () => {
             </button>
             <div className="sd-breadcrumb">
               Services / <span className="sd-current-service">{service.title}</span>
+              {isLoggedIn && userServices.includes(service.id) && (
+                <span className="sd-service-badge">✓ In Your Dashboard</span>
+              )}
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section with Real Hero Image */}
+      {/* Hero Section */}
       <section className="sd-hero-section">
         <div className="sd-hero-container">
           <div className="sd-hero-content">
             <h1>{service.title}</h1>
             <p className="sd-hero-description">{service.shortDescription}</p>
+            
+            {isLoggedIn && (
+              <div className="sd-user-status">
+                {userServices.includes(service.id) ? (
+                  <div className="sd-status-added">
+                    ✅ This service is already in your dashboard
+                  </div>
+                ) : (
+                  <div className="sd-status-not-added">
+                    💡 Click below to add this service to your dashboard
+                  </div>
+                )}
+              </div>
+            )}
+
             <div className="sd-hero-cta-buttons">
-              <button className="sd-hero-cta-btn primary">
-                {service.cta}
+              <button className="sd-hero-cta-btn primary" onClick={handlePrimaryCTA}>
+                {getPrimaryButtonText()}
               </button>
-              <button className="sd-hero-cta-btn secondary"
-              onClick={() => navigate("/mainform")}>
+              <button className="sd-hero-cta-btn secondary" onClick={() => navigate("/mainform")}>
                 Book now
               </button>
+            </div>
+
+            <div className="sd-button-explainer">
+              {!isLoggedIn ? (
+                <p>🔒 Sign up to access this service in your personal dashboard</p>
+              ) : (
+                <p>📊 This service will be added to your analytics and document management dashboard</p>
+              )}
             </div>
           </div>
           <div className="sd-hero-visual">
@@ -153,7 +290,7 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Services Provided */}
+      {/* Rest of the sections */}
       <section className="sd-services-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Key Features</h2>
@@ -169,7 +306,21 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Image Gallery Section */}
+      <section className="sd-services-section">
+        <div className="sd-section-header">
+          <h2 className="sd-section-title">Key Features</h2>
+          <p className="sd-section-description">Comprehensive features designed to solve your logistics challenges</p>
+        </div>
+        <div className="sd-services-grid">
+          {service.features.map((feature, index) => (
+            <div key={index} className="sd-service-card">
+              <h3>{feature}</h3>
+              <p>{service.benefits[index] || "Improves efficiency and reduces costs"}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="sd-how-it-works-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Platform Overview</h2>
@@ -197,7 +348,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Who is it Ideal For */}
       <section className="sd-ideal-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Ideal For</h2>
@@ -213,7 +363,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="sd-how-it-works-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">How It Works</h2>
@@ -230,7 +379,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Problem-Solution Section */}
       <section className="sd-problem-solution-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">How We Solve Your Problems</h2>
@@ -262,7 +410,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* ROI Calculator */}
       <section className="sd-roi-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">ROI Calculator</h2>
@@ -324,7 +471,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="sd-testimonials-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Client Success Stories</h2>
@@ -353,7 +499,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="sd-roi-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Our Impact</h2>
@@ -373,7 +518,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Use Cases */}
       <section className="sd-ideal-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Use Cases</h2>
@@ -389,7 +533,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Feedback Section */}
       <section className="sd-feedback-section">
         <div className="sd-section-header">
           <h2 className="sd-section-title">Share Your Feedback</h2>
@@ -457,7 +600,6 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="sd-cta-section">
         <div className="sd-cta-content">
           <div className="sd-section-header">
@@ -465,10 +607,10 @@ const ServiceDetail = () => {
             <p className="sd-section-description">Join industry leaders who trust our solutions</p>
           </div>
           <div className="sd-cta-buttons">
-            <button className="sd-cta-btn primary">
+            <button className="sd-cta-btn primary" onClick={handleStartFreeTrial}>
               Start Free Trial
             </button>
-            <button className="sd-cta-btn secondary">
+            <button className="sd-cta-btn secondary" onClick={handleScheduleConsultation}>
               Schedule Consultation
             </button>
           </div>

@@ -7,18 +7,20 @@ import TestimonialSection from '../HomeComponents/TestimonialSection'
 import About from '../HomeComponents/About'
 import ValueProposition from '../HomeComponents/ValueProposition'
 import QuoteCTA from '../HomeComponents/QuoteCTA'
+import EventsSection from '../HomeComponents/Events'
 
 function Homepage() {
   return (
     <div>
-        {/* <Header/> */}
-        <Frontpage/>
-        <ValueProposition/>
-        <Solve/>
-        <Overview/>
-         <About/>
-        <TestimonialSection/>
-       <QuoteCTA/>
+      {/* <Header/> */}
+      <Frontpage />
+      <ValueProposition />
+      <EventsSection />
+      <Solve />
+      <Overview />
+      <About />
+      <TestimonialSection />
+      <QuoteCTA />
     </div>
   )
 }
