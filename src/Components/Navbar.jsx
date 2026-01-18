@@ -1,4 +1,3 @@
-// --- Navbar.jsx (Improved with Layout Fixes) ---
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import './Navbar.css';
@@ -77,11 +76,20 @@ const Navbar = () => {
                 >
                   Services
                 </button>
+                
+                {/* NEW: Route Optimizer Feature */}
+                <button 
+                  className={`nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
+                  onClick={() => handleNavigation('/route-optimizer')}
+                >
+                  Route Optimizer
+                </button>
+                
                 <button 
                   className={`nav-link ${isActiveRoute('/about') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/about')}
                 >
-                About
+                  About
                 </button>
                 <button 
                   className={`nav-link ${isActiveRoute('/articles') ? 'active' : ''}`}
@@ -90,16 +98,10 @@ const Navbar = () => {
                   Articles
                 </button>
                  <button 
-                  className={`nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
-                  onClick={() => handleNavigation('/contact')}
-                >
-                  Register
-                </button>
-                <button 
                   className={`nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/mainform')}
                 >
-                  Report
+                  Register
                 </button>
                 <button 
                   className={`nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
@@ -177,6 +179,15 @@ const Navbar = () => {
                 >
                   Services
                 </button>
+                
+                {/* NEW: Route Optimizer Feature */}
+                <button 
+                  className={`nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
+                  onClick={() => handleNavigation('/route-optimizer')}
+                >
+                  Route Optimizer
+                </button>
+                
                 <button 
                   className={`nav-link ${isActiveRoute('/about') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/about')}
@@ -194,12 +205,6 @@ const Navbar = () => {
                   onClick={() => handleNavigation('/mainform')}
                 >
                   Register
-                </button>
-                <button 
-                  className={`nav-link ${isActiveRoute('/report') ? 'active' : ''}`}
-                  onClick={() => handleNavigation('/report')}
-                >
-                  Report
                 </button>
                 <button 
                   className={`nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
@@ -268,6 +273,15 @@ const Navbar = () => {
               >
                 Services
               </button>
+              
+              {/* NEW: Route Optimizer in Mobile Menu */}
+              <button 
+                className={`mobile-nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
+                onClick={() => handleNavigation('/route-optimizer')}
+              >
+                Route Optimizer
+              </button>
+              
               <button 
                 className={`mobile-nav-link ${isActiveRoute('/about') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/about')}
@@ -281,17 +295,11 @@ const Navbar = () => {
                 Articles
               </button>
                <button 
-                  className={`nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
+                  className={`mobile-nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/mainform')}
                 >
                   Register
                 </button>
-              <button 
-                className={`mobile-nav-link ${isActiveRoute('/report') ? 'active' : ''}`}
-                onClick={() => handleNavigation('/report')}
-              >
-                Report
-              </button>
               <button 
                 className={`mobile-nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/contact')}
@@ -335,6 +343,15 @@ const Navbar = () => {
               >
                 Services
               </button>
+              
+              {/* NEW: Route Optimizer in Mobile Menu */}
+              <button 
+                className={`mobile-nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
+                onClick={() => handleNavigation('/route-optimizer')}
+              >
+                🚚 Route Optimizer
+              </button>
+              
               <button 
                 className={`mobile-nav-link ${isActiveRoute('/about') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/about')}
@@ -348,17 +365,11 @@ const Navbar = () => {
                 Articles
               </button>
                <button 
-                  className={`nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
+                  className={`mobile-nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/mainform')}
                 >
                   Register
                 </button>
-              <button 
-                className={`mobile-nav-link ${isActiveRoute('/report') ? 'active' : ''}`}
-                onClick={() => handleNavigation('/report')}
-              >
-                Report
-              </button>
               <button 
                 className={`mobile-nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/contact')}
@@ -391,8 +402,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div 
           className="mobile-menu-overlay"
-          onClick={() => setIsMobileMenuOpen(false)}
-        ></div>
+          onClick={() => setIsMobileMenuOpen(false)}></div>
       )}
     </>
   );

@@ -76,6 +76,28 @@
   font-weight: 600;
 }
 
+/* Highlight the Route Optimizer link */
+.nav-link.featured {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 6px;
+  margin: 0 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+.nav-link.featured:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-1px);
+}
+
+.mobile-nav-link.featured {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+}
 /* Auth Buttons */
 .nav-auth-buttons {
   display: flex;

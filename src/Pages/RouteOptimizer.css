@@ -1,0 +1,496 @@
+/* RouteOptimizer.css - PROFESSIONAL AND CLEAN */
+.route-optimizer {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 30px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.route-optimizer h1 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 40px;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.optimizer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Input Panel - Professional Clean Design */
+.input-panel {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  height: fit-content;
+}
+
+.input-panel h3 {
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.address-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.address-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.address-input input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+}
+
+.address-input input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.address-input input:disabled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.address-number {
+  background: #3b82f6;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.remove-address {
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.remove-address:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.remove-address:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.add-address-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.add-address-btn:hover:not(:disabled) {
+  background: #059669;
+}
+
+.add-address-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.route-info {
+  background: #f0f9ff;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  margin-bottom: 24px;
+}
+
+.route-info p {
+  margin: 4px 0;
+  color: #475569;
+  font-size: 14px;
+}
+
+.optimize-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.optimize-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.optimize-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+/* Results Panel - Clean Layout */
+.results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.optimization-results,
+.cost-breakdown,
+.map-container {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.optimization-results h3,
+.cost-breakdown h3,
+.map-container h3 {
+  color: #1e293b;
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.result-label {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.result-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.result-value.optimized {
+  color: #10b981;
+}
+
+.result-value.original {
+  color: #ef4444;
+}
+
+/* Enhanced Route Visualization */
+.route-visualization {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  margin-top: 25px;
+}
+
+.route-visualization h3 {
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.leaflet-map-large {
+  height: 500px !important;
+  width: 100% !important;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  z-index: 1;
+}
+
+.route-summary-large {
+  margin-top: 25px;
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.route-summary-large h4 {
+  color: #1e293b;
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.stops-list-large {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stop-item-large {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.stop-item-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stop-marker-large {
+  background: #ef4444;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stop-info-large {
+  flex: 1;
+}
+
+.stop-address-large {
+  color: #1e293b;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.stop-coordinates-large {
+  color: #64748b;
+  font-size: 13px;
+  font-family: monospace;
+}
+
+/* Cost Breakdown - Simplified */
+.cost-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cost-item:last-child {
+  border-bottom: none;
+}
+
+.cost-label {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.cost-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cost-value.optimized {
+  color: #10b981;
+}
+
+.cost-savings {
+  background: #ecfdf5;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+  border-left: 4px solid #10b981;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.savings-label {
+  color: #047857;
+  font-weight: 500;
+}
+
+.savings-amount {
+  color: #065f46;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Map Styles */
+.leaflet-container {
+  height: 500px !important;
+  width: 100% !important;
+  border-radius: 8px;
+}
+
+.map-placeholder {
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Error and Loading States */
+.error-message {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #dc2626;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  color: #64748b;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .optimizer-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .input-panel {
+    order: 2;
+  }
+  
+  .results-panel {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .route-optimizer {
+    padding: 20px 16px;
+  }
+  
+  .route-optimizer h1 {
+    font-size: 1.875rem;
+    margin-bottom: 30px;
+  }
+  
+  .input-panel,
+  .optimization-results,
+  .cost-breakdown,
+  .route-visualization {
+    padding: 24px;
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .leaflet-map-large {
+    height: 400px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .address-input {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .address-input input {
+    margin-top: 0;
+  }
+  
+  .leaflet-map-large {
+    height: 350px !important;
+  }
+}

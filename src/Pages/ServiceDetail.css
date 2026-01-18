@@ -778,6 +778,197 @@
 .sd-cta-section .sd-section-description {
   color: #eaf7ff;
 }
+/* AI Response Styles - Clean Design */
+.sd-ai-response-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.sd-ai-response-modal {
+  background: white;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sd-ai-response-header {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sd-ai-response-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.sd-ai-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.sd-ai-response-content {
+  padding: 20px;
+}
+
+.sd-original-feedback {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sd-original-feedback h4,
+.sd-ai-response h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.sd-feedback-rating {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #666;
+}
+
+.sd-feedback-message {
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.sd-feedback-author {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.sd-ai-response p {
+  margin: 0;
+  line-height: 1.5;
+  color: #444;
+}
+
+.sd-ai-response-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.sd-ai-ok-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sd-ai-ok-btn:hover {
+  background: #555;
+}
+
+/* Previous Feedback Section */
+.sd-previous-responses {
+  margin-bottom: 30px;
+}
+
+.sd-previous-responses h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.sd-feedback-entry {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sd-feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sd-feedback-rating {
+  font-weight: 500;
+  color: #333;
+}
+
+.sd-feedback-date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.sd-feedback-message {
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.sd-feedback-author {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.sd-ai-response-section {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 15px;
+}
+
+.sd-ai-response-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.sd-ai-response-message {
+  line-height: 1.5;
+  color: #444;
+}
+
+.sd-ai-notice {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 968px) {

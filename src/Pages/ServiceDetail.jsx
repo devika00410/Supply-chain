@@ -1,4 +1,4 @@
-// --- ServiceDetail.jsx (Updated Version) ---
+// --- ServiceDetail.jsx (Updated with AI Feedback Response) ---
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ServiceDetails from '../Data/ServiceDetails.json';
@@ -27,6 +27,11 @@ const ServiceDetail = () => {
   const [userServices, setUserServices] = useState([]);
   const [userData, setUserData] = useState(null);
 
+  // New state for AI feedback responses
+  const [feedbackHistory, setFeedbackHistory] = useState([]);
+  const [showAiResponse, setShowAiResponse] = useState(false);
+  const [currentAiResponse, setCurrentAiResponse] = useState(null);
+
   const service = ServiceDetails.find(s => s.id === parseInt(serviceId));
   if (!service) {
     return <div className="sd-service-not-found">Service Not Found</div>;
@@ -35,6 +40,7 @@ const ServiceDetail = () => {
   // Check authentication status on component mount
   useEffect(() => {
     checkAuthStatus();
+    loadSavedFeedbackHistory();
   }, []);
 
   const checkAuthStatus = () => {
@@ -51,6 +57,111 @@ const ServiceDetail = () => {
       setUserData(null);
       setUserServices([]);
     }
+  };
+
+  // Load saved feedback history from localStorage
+  const loadSavedFeedbackHistory = () => {
+    const savedHistory = localStorage.getItem(`feedbackHistory_${serviceId}`);
+    if (savedHistory) {
+      setFeedbackHistory(JSON.parse(savedHistory));
+    }
+  };
+
+  // Save feedback history to localStorage
+  const saveFeedbackHistory = (history) => {
+    localStorage.setItem(`feedbackHistory_${serviceId}`, JSON.stringify(history));
+  };
+
+  // AI Feedback Response Generator
+  const generateAIResponse = (feedbackData) => {
+    const { rating, message, name } = feedbackData;
+    
+    // Analyze sentiment based on rating and message
+    const isPositive = rating >= 4;
+    const isNegative = rating <= 2;
+    const isNeutral = rating === 3;
+
+    // Check for specific keywords in the message
+    const messageLower = message.toLowerCase();
+    const hasUrgentWords = messageLower.includes('urgent') || messageLower.includes('immediate') || messageLower.includes('emergency');
+    const hasComplaintWords = messageLower.includes('problem') || messageLower.includes('issue') || messageLower.includes('complaint') || messageLower.includes('bad') || messageLower.includes('poor');
+    const hasPraiseWords = messageLower.includes('excellent') || messageLower.includes('great') || messageLower.includes('amazing') || messageLower.includes('good') || messageLower.includes('perfect');
+
+    let response = '';
+
+    if (isPositive && hasPraiseWords) {
+      response = `Thank you for your excellent feedback${name ? `, ${name}` : ''}! We're delighted to hear about your positive experience with our ${service.title} service. Our team works hard to maintain this high standard, and we appreciate you recognizing our efforts. We look forward to continuing to serve you.`;
+    } else if (isPositive) {
+      response = `Thank you for your positive feedback${name ? `, ${name}` : ''}. We're pleased to know you're satisfied with our ${service.title} service. Your satisfaction is important to us, and we're committed to maintaining the quality you expect.`;
+    } else if (isNegative && hasUrgentWords) {
+      response = `We sincerely apologize for the urgent issues you've experienced${name ? `, ${name}` : ''}. Our support team has been alerted and will contact you immediately to resolve these concerns with our ${service.title} service.`;
+    } else if (isNegative && hasComplaintWords) {
+      response = `We apologize for the problems you've encountered${name ? `, ${name}` : ''}. Your feedback about our ${service.title} service has been escalated to our quality team, who will investigate and contact you within 24 hours to address these issues.`;
+    } else if (isNegative) {
+      response = `Thank you for sharing your concerns${name ? `, ${name}` : ''}. We're sorry our ${service.title} service didn't meet your expectations. We're reviewing your feedback and will use it to improve our services. A team member will follow up with you soon.`;
+    } else if (isNeutral) {
+      response = `Thank you for your feedback${name ? `, ${name}` : ''}. We appreciate you sharing your experience with our ${service.title} service. We're always working to improve, and your input helps us enhance our offerings for all customers.`;
+    } else {
+      response = `Thank you for your feedback${name ? `, ${name}` : ''}. We appreciate you taking the time to share your experience with our ${service.title} service. Our team reviews all feedback to continuously improve our services.`;
+    }
+
+    return response;
+  };
+
+  // Handle feedback submission with AI response
+  const handleFeedbackSubmit = (e) => {
+    e.preventDefault();
+    
+    // Create feedback object
+    const feedbackData = {
+      ...feedback,
+      id: Date.now(),
+      timestamp: new Date().toISOString(),
+      serviceId: service.id,
+      serviceName: service.title
+    };
+
+    // Generate AI response
+    const aiResponse = generateAIResponse(feedbackData);
+
+    // Create complete feedback entry
+    const feedbackEntry = {
+      ...feedbackData,
+      aiResponse: aiResponse,
+      aiResponseTimestamp: new Date(Date.now() + 60000).toISOString() // 1 minute later
+    };
+
+    // Add to history and save
+    const updatedHistory = [...feedbackHistory, feedbackEntry];
+    setFeedbackHistory(updatedHistory);
+    saveFeedbackHistory(updatedHistory);
+
+    // Show submission message
+    alert('Thank you for your feedback! Our AI will respond in about 1 minute.');
+
+    // Reset form
+    setFeedback({
+      name: '',
+      email: '',
+      company: '',
+      rating: 5,
+      message: ''
+    });
+
+    // Show AI response after 1 minute
+    setTimeout(() => {
+      setCurrentAiResponse({
+        feedback: feedbackData,
+        aiResponse: aiResponse
+      });
+      setShowAiResponse(true);
+    }, 60000); // 1 minute delay
+  };
+
+  // Close AI response
+  const closeAiResponse = () => {
+    setShowAiResponse(false);
+    setCurrentAiResponse(null);
   };
 
   // SMART PRIMARY BUTTON HANDLER
@@ -162,18 +273,6 @@ const ServiceDetail = () => {
     });
   };
 
-  const handleFeedbackSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for your feedback! We appreciate your input.');
-    setFeedback({
-      name: '',
-      email: '',
-      company: '',
-      rating: 5,
-      message: ''
-    });
-  };
-
   // Auto-rotate testimonials and gallery
   useEffect(() => {
     const testimonialInterval = setInterval(() => {
@@ -202,6 +301,44 @@ const ServiceDetail = () => {
 
   return (
     <div className="sd-container">
+      {/* AI Response Notification */}
+      {showAiResponse && currentAiResponse && (
+        <div className="sd-ai-response-overlay">
+          <div className="sd-ai-response-modal">
+            <div className="sd-ai-response-header">
+              <h3>AI Response to Your Feedback</h3>
+              <button className="sd-ai-close-btn" onClick={closeAiResponse}>×</button>
+            </div>
+            <div className="sd-ai-response-content">
+              <div className="sd-original-feedback">
+                <h4>Your Review:</h4>
+                <div className="sd-feedback-rating">
+                  Rating: {renderStars(currentAiResponse.feedback.rating)} ({currentAiResponse.feedback.rating}/5)
+                </div>
+                <div className="sd-feedback-message">
+                  "{currentAiResponse.feedback.message}"
+                </div>
+                {currentAiResponse.feedback.name && (
+                  <div className="sd-feedback-author">
+                    - {currentAiResponse.feedback.name}
+                    {currentAiResponse.feedback.company && `, ${currentAiResponse.feedback.company}`}
+                  </div>
+                )}
+              </div>
+              <div className="sd-ai-response">
+                <h4>AI Response:</h4>
+                <p>{currentAiResponse.aiResponse}</p>
+              </div>
+            </div>
+            <div className="sd-ai-response-footer">
+              <button className="sd-ai-ok-btn" onClick={closeAiResponse}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="sd-header">
         <div className="sd-nav-container">
@@ -249,11 +386,11 @@ const ServiceDetail = () => {
               <div className="sd-user-status">
                 {userServices.includes(service.id) ? (
                   <div className="sd-status-added">
-                    ✅ This service is already in your dashboard
+                    This service is already in your dashboard
                   </div>
                 ) : (
                   <div className="sd-status-not-added">
-                    💡 Click below to add this service to your dashboard
+                    Click below to add this service to your dashboard
                   </div>
                 )}
               </div>
@@ -270,9 +407,9 @@ const ServiceDetail = () => {
 
             <div className="sd-button-explainer">
               {!isLoggedIn ? (
-                <p>🔒 Sign up to access this service in your personal dashboard</p>
+                <p>Sign up to access this service in your personal dashboard</p>
               ) : (
-                <p>📊 This service will be added to your analytics and document management dashboard</p>
+                <p>This service will be added to your analytics and document management dashboard</p>
               )}
             </div>
           </div>
@@ -289,22 +426,7 @@ const ServiceDetail = () => {
           </div>
         </div>
       </section>
-
-      {/* Rest of the sections */}
-      <section className="sd-services-section">
-        <div className="sd-section-header">
-          <h2 className="sd-section-title">Key Features</h2>
-          <p className="sd-section-description">Comprehensive features designed to solve your logistics challenges</p>
-        </div>
-        <div className="sd-services-grid">
-          {service.features.map((feature, index) => (
-            <div key={index} className="sd-service-card">
-              <h3>{feature}</h3>
-              <p>{service.benefits[index] || "Improves efficiency and reduces costs"}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* Features */}
 
       <section className="sd-services-section">
         <div className="sd-section-header">
@@ -538,6 +660,41 @@ const ServiceDetail = () => {
           <h2 className="sd-section-title">Share Your Feedback</h2>
           <p className="sd-section-description">We'd love to hear about your experience with our service</p>
         </div>
+        
+        {/* Display Previous Feedback with AI Responses */}
+        {feedbackHistory.length > 0 && (
+          <div className="sd-previous-responses">
+            <h3>Previous Feedback</h3>
+            {feedbackHistory.slice().reverse().map((entry) => (
+              <div key={entry.id} className="sd-feedback-entry">
+                <div className="sd-feedback-header">
+                  <div className="sd-feedback-rating">
+                    {renderStars(entry.rating)} ({entry.rating}/5)
+                  </div>
+                  <div className="sd-feedback-date">
+                    {new Date(entry.timestamp).toLocaleDateString()}
+                  </div>
+                </div>
+                <div className="sd-feedback-message">
+                  "{entry.message}"
+                </div>
+                {entry.name && (
+                  <div className="sd-feedback-author">
+                    - {entry.name}
+                    {entry.company && `, ${entry.company}`}
+                  </div>
+                )}
+                <div className="sd-ai-response-section">
+                  <div className="sd-ai-response-label">AI Response:</div>
+                  <div className="sd-ai-response-message">
+                    {entry.aiResponse}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
         <div className="sd-feedback-container">
           <form className="sd-feedback-form" onSubmit={handleFeedbackSubmit}>
             <div className="sd-form-group">
@@ -596,6 +753,9 @@ const ServiceDetail = () => {
             <button type="submit" className="sd-submit-btn">
               Submit Feedback
             </button>
+            <div className="sd-ai-notice">
+Thank you for your feedback it helps for the growth of our journey.
+            </div>
           </form>
         </div>
       </section>

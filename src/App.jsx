@@ -6,11 +6,13 @@ import Homepage from "./Pages/Homepage";
 import ServicesPage from "./Pages/ServicesPage";
 import ServiceDetail from "./Pages/ServiceDetail";
 import SignUp from "./Pages/SignUp";
-import UserDashboard from "./Pages/UserDashboard"; // Make sure the file name matches
+import UserDashboard from "./Pages/UserDashboard";
 import Login from "./Pages/Login";
 import MainForm from "./Pages/MainForm";
 import ConsultationForm from "./Pages/ConsultationForm";
 import PaymentPage from "./Pages/PaymentPage";
+import RouteOptimizer from "./Pages/RouteOptimizer";
+import Events from "./Pages/EventsPage";
 // Components
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -19,6 +21,8 @@ import AboutUs from "./Pages/AboutUs";
 import Report from "./Pages/Report";
 import Contact from "./Pages/Contact";
 import Articles from "./Pages/Articles";
+import EventRegistration from "./Pages/EventRegistration";
+import AILogisticsAssistant from "./Pages/AiLogisticsAssistant";
 
 function App() {
   return (
@@ -36,6 +40,10 @@ function App() {
             <Route path="/report" element={<Report />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/services/:serviceId" element={<ServiceDetail />} />
+            <Route path="/events" element={<Events/>} />
+            <Route path="/events/register/:eventId" element={<EventRegistration />} />
+            <Route path="/route-optimizer" element={<RouteOptimizer />} />
+            <Route path="/ai/chatbot" element={<AILogisticsAssistant />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<UserDashboard />} />
             <Route path="/login" element={<Login />} />

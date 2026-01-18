@@ -30,7 +30,7 @@ const JourneyMap = () => {
     <div style={{ width: "100%", height: "700px", position: "relative" }}>
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ center: [80, 20], scale: 900 }} // Full India top to bottom
+        projectionConfig={{ center: [80, 20], scale: 900 }} 
       >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
@@ -103,7 +103,7 @@ const JourneyMap = () => {
             left: "50%",
             transform: "translateX(-50%)",
             padding: "16px 20px",
-            background: "#fff", // light blue background
+            background: "#fff",
             color: "#111827",
             borderRadius: "12px",
             boxShadow: "0 6px 16px rgba(0,0,0,0.1)",
