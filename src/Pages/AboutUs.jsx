@@ -23,6 +23,7 @@ import {
   RiAwardFill,
   RiFilePaperFill
 } from 'react-icons/ri';
+import HowItWorksSnippet from '../Components/HowItWorksSnippet';
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -343,6 +344,11 @@ const AboutUs = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+        <section className="py-12">
+        <div className="container mx-auto px-4">
+          <HowItWorksSnippet />
         </div>
       </section>
 

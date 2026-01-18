@@ -24,6 +24,8 @@ import Articles from "./Pages/Articles";
 import EventRegistration from "./Pages/EventRegistration";
 import AILogisticsAssistant from "./Pages/AiLogisticsAssistant";
 import Testimonials from "./Pages/Testimonials";
+import HowItWork from "./Pages/HowItWork";
+import ServiceProviderRegister from "./Pages/ServiceProviderRegister";
 
 function App() {
   return (
@@ -52,7 +54,9 @@ function App() {
             <Route path="/consultation" element={<ConsultationForm />} />
               <Route path="/contact" element={<Contact />} />
             <Route path="/payment" element={<PaymentPage />} />
+             <Route path="/service-provider" element={<ServiceProviderRegister />} />
             <Route path="/testimonials" element={<Testimonials />} />
+             <Route path="/how-it-works" element={<HowItWork/>} />
           </Routes>
         </div>
 

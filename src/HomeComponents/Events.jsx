@@ -1,201 +1,159 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// components/EventsSnippet.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { 
+  FaCalendarAlt, 
+  FaMapMarkerAlt, 
+  FaGlobe, 
+  FaArrowRight,
+  FaUsers,
+  FaMicrophone,
+  FaRegCalendarCheck
+} from 'react-icons/fa';
 
 const eventsData = [
   {
     id: 1,
-    title: "Global Supply Chain Innovation Summit 2025",
-    date: "March 20, 2025",
-    location: "Rotterdam, Netherlands",
-    image: "https://unctad.org/sites/default/files/inline-images/ttl-gscf-innovation-challenge-v2_1200x675_0.jpg",
-    category: "Conference"
+    title: "Supply Chain Innovation Summit",
+    date: "Mar 20, 2025",
+    location: "Rotterdam",
+    type: "Conference",
+    virtual: false
   },
   {
     id: 2,
-    title: "Warehouse Automation & Robotics Expo",
-    date: "April 15, 2025",
-    location: "Chicago, USA",
-    image: "https://www.therobotreport.com/wp-content/uploads/2025/04/BostonDeviceRobotics-featured.jpg",
-    category: "Exhibition"
+    title: "Warehouse Automation Expo",
+    date: "Apr 15, 2025",
+    location: "Chicago",
+    type: "Exhibition",
+    virtual: false
   },
   {
     id: 3,
-    title: "Blockchain in Logistics Workshop",
+    title: "Blockchain Logistics Workshop",
     date: "May 10, 2025",
-    location: "Virtual",
-    image: "https://media.licdn.com/dms/image/v2/D5612AQFqV93sHyI9Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724157687929?e=2147483647&v=beta&t=5jRRI8zs3C0AhZtnp4W2RoWsbP5_3Syv0C5ML6cOTbY",
-    category: "Workshop"
+    location: "Online",
+    type: "Workshop",
+    virtual: true
   },
   {
     id: 4,
-    title: "Last-Mile Delivery Solutions Forum",
-    date: "June 5, 2025",
-    location: "Berlin, Germany",
-    image: "https://acropolium.com/img/articles/last-mile-delivery-solutions-optimize-logistics-for-better-customer-satisfaction/img01.jpg",
-    category: "Forum"
+    title: "Last-Mile Delivery Forum",
+    date: "Jun 5, 2025",
+    location: "Berlin",
+    type: "Forum",
+    virtual: false
   },
 ];
 
 const EventsSection = () => {
   const navigate = useNavigate();
-  const [visible, setVisible] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  useEffect(() => {
-    setTimeout(() => {
-      setVisible(true);
-    }, 100);
-  }, []);
-
-  const categories = ["All", "Conference", "Workshop", "Exhibition", "Forum", "Virtual"];
-  
-  const filteredEvents = selectedCategory === "All" 
-    ? eventsData 
-    : eventsData.filter(event => event.category === selectedCategory);
 
   return (
-    <section className={`transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-2xl shadow-lg p-6 md:p-8 lg:p-12">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center p-2 bg-blue-100 rounded-lg mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+    <div className="bg-white rounded-2xl p-8 shadow-lg border border-sky-100 my-12">
+      {/* Header */}
+      <div className="text-center mb-10">
+        <div className="inline-block p-3 bg-sky-100 rounded-xl mb-4">
+          <FaCalendarAlt className="w-8 h-8 text-sky-600" />
+        </div>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+          Upcoming Industry Events
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Join logistics experts at premier supply chain conferences and workshops
+        </p>
+      </div>
+
+      {/* Events Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        {eventsData.map((event) => (
+          <div 
+            key={event.id}
+            className="bg-sky-50 rounded-xl p-5 border border-sky-100 hover:border-sky-300 transition-all duration-300 hover:shadow-md"
+          >
+            {/* Event Type Badge */}
+            <div className="mb-4">
+              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                event.type === 'Conference' ? 'bg-sky-100 text-sky-800' :
+                event.type === 'Workshop' ? 'bg-emerald-100 text-emerald-800' :
+                event.type === 'Exhibition' ? 'bg-amber-100 text-amber-800' :
+                'bg-purple-100 text-purple-800'
+              }`}>
+                {event.type}
+              </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Logistics Industry Events
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Join leading supply chain experts, innovators, and logistics professionals at our curated events
-            </p>
-          </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? "bg-blue-600 text-white shadow-md"
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+            {/* Event Title */}
+            <h3 className="text-lg font-bold text-gray-900 mb-4 line-clamp-2">
+              {event.title}
+            </h3>
 
-          {/* Events Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {filteredEvents.map((event) => (
-              <div
-                key={event.id}
-                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group"
-              >
-                {/* Event Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
-                      {event.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Event Details */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                    {event.title}
-                  </h3>
-                  
-                  <div className="space-y-3">
-                    {/* Date */}
-                    <div className="flex items-center text-gray-600">
-                      <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span className="text-sm font-medium">{event.date}</span>
-                    </div>
-
-                    {/* Location */}
-                    <div className="flex items-center text-gray-600">
-                      <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span className="text-sm">{event.location}</span>
-                    </div>
-
-                    {/* Virtual Badge for Online Events */}
-                    {event.location === "Virtual" && (
-                      <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
-                        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                        Online Event
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Register Button */}
-                  <button className="mt-6 w-full py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:-translate-y-0.5">
-                    Register Now
-                  </button>
-                </div>
+            {/* Event Details */}
+            <div className="space-y-3 mb-5">
+              <div className="flex items-center text-gray-600">
+                <FaRegCalendarCheck className="w-4 h-4 text-sky-500 mr-2" />
+                <span className="text-sm font-medium">{event.date}</span>
               </div>
-            ))}
-          </div>
 
-          {/* Bottom Section with CTA */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Can't Find Your Desired Event?
-              </h3>
-              <p className="text-blue-100 mb-6">
-                Submit your event or suggest topics for future logistics and supply chain discussions
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => navigate("/events")}
-                  className="px-8 py-3 bg-white text-blue-700 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  View All Events
-                </button>
-                <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
-                  Submit Event
-                </button>
+              <div className="flex items-center text-gray-600">
+                {event.virtual ? (
+                  <FaGlobe className="w-4 h-4 text-emerald-500 mr-2" />
+                ) : (
+                  <FaMapMarkerAlt className="w-4 h-4 text-sky-500 mr-2" />
+                )}
+                <span className="text-sm">{event.location}</span>
               </div>
             </div>
-          </div>
 
+            {/* Register Button */}
+            <button
+              onClick={() => navigate('/events')}
+              className="w-full py-2 bg-white text-sky-700 font-medium rounded-lg hover:bg-sky-50 transition-colors border border-sky-200 text-sm"
+            >
+              Register Interest
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Stats & CTA */}
+      <div className="bg-gradient-to-r from-sky-50 to-white rounded-xl p-6 border border-sky-100">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Stats */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-4">
-              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-              <div className="text-gray-600">Industry Speakers</div>
+          <div className="grid grid-cols-3 gap-6 md:w-2/3">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-sky-600 mb-1">50+</div>
+              <div className="text-sm text-gray-600">Speakers</div>
             </div>
-            <div className="text-center p-4">
-              <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
-              <div className="text-gray-600">Logistics Professionals</div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-sky-600 mb-1">1K+</div>
+              <div className="text-sm text-gray-600">Attendees</div>
             </div>
-            <div className="text-center p-4">
-              <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-              <div className="text-gray-600">Countries Represented</div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-sky-600 mb-1">15+</div>
+              <div className="text-sm text-gray-600">Countries</div>
             </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="md:w-1/3">
+            <button
+              onClick={() => navigate('/events')}
+              className="w-full px-6 py-3 bg-gradient-to-r from-sky-600 to-sky-500 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-sky-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+            >
+              <FaUsers className="w-4 h-4" />
+              View All Events
+              <FaArrowRight className="w-3 h-3" />
+            </button>
           </div>
         </div>
       </div>
-    </section>
+
+      {/* Bottom Note */}
+      <p className="text-center text-sm text-gray-500 mt-6">
+        Network with industry leaders • Learn latest trends • Expand your business
+      </p>
+    </div>
   );
 };
 

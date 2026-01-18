@@ -8,6 +8,7 @@ import ValueProposition from '../HomeComponents/ValueProposition'
 import QuoteCTA from '../HomeComponents/QuoteCTA'
 import EventsSection from '../HomeComponents/Events'
 import AIChatbotAdvanced from '../components/AIChatbotAdvanced'
+import HomeServiceProviderSnippet from '../HomeComponents/ServiceProviderRegisterSnippet'
 
 function Homepage() {
   return (
@@ -16,8 +17,11 @@ function Homepage() {
       <Frontpage />
       <ValueProposition />
       <Solve />
-      <EventsSection />
+      <section className="container mx-auto px-4">
+        <HomeServiceProviderSnippet />
+      </section>
       <Overview />
+      <EventsSection />
       <About />
       <TestimonialSection />
       <br></br>
