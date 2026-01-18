@@ -23,6 +23,7 @@ import Contact from "./Pages/Contact";
 import Articles from "./Pages/Articles";
 import EventRegistration from "./Pages/EventRegistration";
 import AILogisticsAssistant from "./Pages/AiLogisticsAssistant";
+import Testimonials from "./Pages/Testimonials";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             <Route path="/consultation" element={<ConsultationForm />} />
               <Route path="/contact" element={<Contact />} />
             <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/testimonials" element={<Testimonials />} />
           </Routes>
         </div>
 

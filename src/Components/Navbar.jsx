@@ -9,11 +9,36 @@ const Navbar = () => {
   const [userData, setUserData] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Check authentication status
   useEffect(() => {
     checkAuthStatus();
+    checkDarkMode();
   }, [location]);
+
+  // Check for saved dark mode preference
+  const checkDarkMode = () => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+      setIsDarkMode(true);
+      document.body.classList.add('dark-mode');
+    }
+  };
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    
+    if (newDarkMode) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'false');
+    }
+  };
 
   const checkAuthStatus = () => {
     const token = localStorage.getItem('authToken');
@@ -77,7 +102,7 @@ const Navbar = () => {
                   Services
                 </button>
                 
-                {/* NEW: Route Optimizer Feature */}
+                {/* Route Optimizer Feature */}
                 <button 
                   className={`nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/route-optimizer')}
@@ -97,7 +122,7 @@ const Navbar = () => {
                 >
                   Articles
                 </button>
-                 <button 
+                <button 
                   className={`nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/mainform')}
                 >
@@ -109,6 +134,28 @@ const Navbar = () => {
                 >
                   Contact
                 </button>
+                
+                {/* Dark Mode Toggle */}
+                <div className="dark-mode-toggle">
+                  <div 
+                    className={`toggle-switch ${isDarkMode ? 'dark' : ''}`}
+                    onClick={toggleDarkMode}
+                    role="switch"
+                    aria-checked={isDarkMode}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleDarkMode();
+                      }
+                    }}
+                  >
+                    <div className="toggle-slider">
+                      <span className={`toggle-icon sun-icon ${isDarkMode ? '' : 'active'}`}>☀️</span>
+                      <span className={`toggle-icon moon-icon ${isDarkMode ? 'active' : ''}`}>🌙</span>
+                    </div>
+                  </div>
+                </div>
                 
                 {/* User Menu */}
                 <div className="nav-user-menu">
@@ -180,7 +227,7 @@ const Navbar = () => {
                   Services
                 </button>
                 
-                {/* NEW: Route Optimizer Feature */}
+                {/* Route Optimizer Feature */}
                 <button 
                   className={`nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/route-optimizer')}
@@ -200,7 +247,7 @@ const Navbar = () => {
                 >
                   Articles
                 </button>
-                 <button 
+                <button 
                   className={`nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
                   onClick={() => handleNavigation('/mainform')}
                 >
@@ -212,6 +259,28 @@ const Navbar = () => {
                 >
                   Contact
                 </button>
+                
+                {/* Dark Mode Toggle */}
+                <div className="dark-mode-toggle">
+                  <div 
+                    className={`toggle-switch ${isDarkMode ? 'dark' : ''}`}
+                    onClick={toggleDarkMode}
+                    role="switch"
+                    aria-checked={isDarkMode}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleDarkMode();
+                      }
+                    }}
+                  >
+                    <div className="toggle-slider">
+                      <span className={`toggle-icon sun-icon ${isDarkMode ? '' : 'active'}`}>☀️</span>
+                      <span className={`toggle-icon moon-icon ${isDarkMode ? 'active' : ''}`}>🌙</span>
+                    </div>
+                  </div>
+                </div>
                 
                 <div className="nav-auth-buttons">
                   <button 
@@ -246,6 +315,29 @@ const Navbar = () => {
       {/* Mobile Navigation Menu - Outside main nav */}
       <div className={`mobile-nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-content">
+          {/* Dark Mode Toggle for Mobile */}
+          <div className="mobile-dark-mode-toggle">
+            <span className="mobile-toggle-label">Dark Mode</span>
+            <div 
+              className={`toggle-switch mobile-toggle-switch ${isDarkMode ? 'dark' : ''}`}
+              onClick={toggleDarkMode}
+              role="switch"
+              aria-checked={isDarkMode}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleDarkMode();
+                }
+              }}
+            >
+              <div className="toggle-slider mobile-toggle-slider">
+                <span className={`toggle-icon sun-icon ${isDarkMode ? '' : 'active'}`}>☀️</span>
+                <span className={`toggle-icon moon-icon ${isDarkMode ? 'active' : ''}`}>🌙</span>
+              </div>
+            </div>
+          </div>
+          
           {isLoggedIn ? (
             // Mobile Authenticated Menu
             <>
@@ -274,7 +366,7 @@ const Navbar = () => {
                 Services
               </button>
               
-              {/* NEW: Route Optimizer in Mobile Menu */}
+              {/* Route Optimizer in Mobile Menu */}
               <button 
                 className={`mobile-nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/route-optimizer')}
@@ -294,12 +386,12 @@ const Navbar = () => {
               >
                 Articles
               </button>
-               <button 
-                  className={`mobile-nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
-                  onClick={() => handleNavigation('/mainform')}
-                >
-                  Register
-                </button>
+              <button 
+                className={`mobile-nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
+                onClick={() => handleNavigation('/mainform')}
+              >
+                Register
+              </button>
               <button 
                 className={`mobile-nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/contact')}
@@ -344,7 +436,7 @@ const Navbar = () => {
                 Services
               </button>
               
-              {/* NEW: Route Optimizer in Mobile Menu */}
+              {/* Route Optimizer in Mobile Menu */}
               <button 
                 className={`mobile-nav-link featured ${isActiveRoute('/route-optimizer') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/route-optimizer')}
@@ -364,12 +456,12 @@ const Navbar = () => {
               >
                 Articles
               </button>
-               <button 
-                  className={`mobile-nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
-                  onClick={() => handleNavigation('/mainform')}
-                >
-                  Register
-                </button>
+              <button 
+                className={`mobile-nav-link ${isActiveRoute('/mainform') ? 'active' : ''}`}
+                onClick={() => handleNavigation('/mainform')}
+              >
+                Register
+              </button>
               <button 
                 className={`mobile-nav-link ${isActiveRoute('/contact') ? 'active' : ''}`}
                 onClick={() => handleNavigation('/contact')}

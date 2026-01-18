@@ -204,7 +204,7 @@ const clients = [
           </div>
           <div className="stat-card">
             <div className="stat-image">
-              <img src="/images/stats/campaigns.png" alt="Campaigns Managed" />
+              <img src="https://logistics.org.uk/getmedia/b1e19fd8-5b38-42a7-9b21-146efcf3b750/multimodal-645w-x-430h.jpg" alt="Campaigns Managed" />
             </div>
             <div className="stat-data">
               <div className="stat-number">500K+</div>
@@ -213,7 +213,7 @@ const clients = [
           </div>
           <div className="stat-card">
             <div className="stat-image">
-              <img src="/images/stats/satisfaction.png" alt="Client Satisfaction" />
+              <img src="https://img.freepik.com/free-photo/happy-african-american-bank-manager-shaking-hands-with-client-after-successful-agreement-office_637285-1150.jpg?semt=ais_hybrid&w=740&q=80" alt="Client Satisfaction" />
             </div>
             <div className="stat-data">
               <div className="stat-number">97%</div>
@@ -222,7 +222,7 @@ const clients = [
           </div>
           <div className="stat-card">
             <div className="stat-image">
-              <img src="/images/stats/industries.png" alt="Industries Served" />
+              <img src="https://avsinc.com/wp-content/uploads/2019/01/Industry-4.0.png" alt="Industries Served" />
             </div>
             <div className="stat-data">
               <div className="stat-number">200+</div>
@@ -263,6 +263,10 @@ const clients = [
               />
             ))}
           </div>
+           <button className="cta-btn secondary"
+           onClick={()=>navigate('/testimonials')}>
+                View All
+              </button>
         </div>
       </section>
 
