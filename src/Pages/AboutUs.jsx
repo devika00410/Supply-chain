@@ -186,6 +186,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-8">
+              <h4 className='text-red-600 text-sm'>*It is a dummy about page</h4>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-sky-900 leading-tight">
                 Transforming Supply Chains with Intelligence
               </h1>

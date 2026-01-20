@@ -9,10 +9,13 @@ import QuoteCTA from '../HomeComponents/QuoteCTA'
 import EventsSection from '../HomeComponents/Events'
 import AIChatbotAdvanced from '../Components/AiChatbotAdvanced'
 import HomeServiceProviderSnippet from '../HomeComponents/ServiceProviderRegisterSnippet'
+import DummyDataModal from '../HomeComponents/DummyDataModal'
 
 function Homepage() {
   return (
     <div className="relative min-h-screen">
+
+      <DummyDataModal />
       {/* Main Content */}
       <Frontpage />
       <ValueProposition />
